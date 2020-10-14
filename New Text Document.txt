@@ -1,0 +1,24 @@
+-- Your code here!
+create table Employee(id integer,name varchar(100),address varchar(100),PRIMARY KEY (id));
+insert into Employee(id,name,address)
+value(01,"Aakash Sethi","AEM");
+select * from Employee;
+
+create table Address(address_id integer,address1 varchar(100),address2 varchar(100),phone_no varchar(10),pincode varchar(5),PRIMARY KEY (address_id));
+insert into Address(address_id,address1,address2,phone_no,pincode)
+value(01,"609 Central ave","Harrison","5616447279","07029");
+select * from Address;
+
+create table Phone_number(pid integer,phone_no varchar(10),home varchar(10),fax varchar(10),PRIMARY KEY (pid));
+insert into Phone_number(pid,phone_no,home,fax)
+value(01,"123457890","0562-2256","56123467");
+select * from Phone_number;
+
+create table Pin_code(pinid integer,pincodenum varchar(10),PRIMARY KEY (pinid));
+insert into Pin_code(pinid,pincodenum)
+value(01,"0125689");
+select * from Pin_code;
+
+select * from Employee e, Pin_code p where e.id = p.pinid ;
+select e.address, a.pincode,a.phone_no from Employee e, Address a 
+Where e.id= a.address_id;
